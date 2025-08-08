@@ -1,7 +1,7 @@
-import { loginSetup } from "../../services/loginservices";
+import { useLogin } from "../../context/logincontext";
 
 const Login = () => {
-  const login = loginSetup();
+  const login = useLogin();
 
   if (!login) {
     return (
@@ -18,7 +18,6 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-200 to-emerald-500">
       <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md flex flex-col items-center">
-        
         <img
           src="/src/assets/logo.png"
           alt="Company Logo"

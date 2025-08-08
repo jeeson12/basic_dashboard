@@ -1,15 +1,12 @@
-
-import { loginSetup } from "./loginservices";
-import  type { ReactNode } from "react";
+import { useLogin } from "./logincontext";
+import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const login = loginSetup();
+  const login = useLogin();
 
   if (!login || !login.credentials || !login.credentials.isloggedin) {
     return <Navigate to="/login" />;
   }
-  return children ;
+  return children;
 };
-
-

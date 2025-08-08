@@ -1,13 +1,12 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/login";
-import Dashboard from "./pages/dashboard/dashboard";
-import Dashdata from "./pages/dashpages/dashdata.tsx";
-import Projects from "./pages/dashpages/projects.tsx";
-import Employees from "./pages/dashpages/employees.tsx";
-import Home from "./pages/dashpages/Home.tsx";
+import Dashboard from "./component/dashboard.tsx";
+import Dashdata from "./pages/dashboard/dashboard.tsx";
+import Projects from "./pages/projects/projects.tsx";
+import Employees from "./pages/employees/employees.tsx";
+import Home from "./pages/home/Home.tsx";
 import { LoginProvider } from "./services/loginservices.tsx";
-import { AuthProvider } from "./services/protectedroute.tsx";
+import { AuthProvider } from "./context/protectedroute.tsx";
 
 const App = () => {
   return (

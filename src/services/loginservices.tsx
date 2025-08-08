@@ -1,23 +1,14 @@
-import { createContext, useContext } from "react";
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { loginData } from "../data/loginData";
 import { useNavigate } from "react-router-dom";
+import { loginfunction } from "../context/logincontext";
 
 export type credential = {
   userName: string;
   passWord: string | number;
   isloggedin: boolean;
 };
-
-const loginfunction = createContext<
-  | {
-      handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-      handleSubmit: () => void;
-      credentials: credential;
-    }
-  | undefined
->(undefined);
 
 export const LoginProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
@@ -57,5 +48,3 @@ export const LoginProvider = ({ children }: { children: ReactNode }) => {
     </loginfunction.Provider>
   );
 };
-
-export const loginSetup = () => useContext(loginfunction);
