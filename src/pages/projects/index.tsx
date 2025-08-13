@@ -22,13 +22,13 @@ const Projects = () => {
           </thead>
           <tbody className="">
             {widget?.projects.map((widget, index) => (
-              <tr className="text-center">
+              <tr className="text-center"key={index}>
                 
-                <td key={index}className="p-3">{widget.projectId}</td>
-                <td key={index}>{widget.name} </td>
-                <td key={index}>{widget.lead}</td>
-                <td key={index}>{widget.deadline}</td>
-                <td key={index}>{widget.status}</td>
+                <td className="p-3">{widget.projectId}</td>
+                <td>{widget.name} </td>
+                <td>{widget.lead}</td>
+                <td>{widget.deadline}</td>
+                <td>{widget.status}</td>
                 
               </tr>
             ))}

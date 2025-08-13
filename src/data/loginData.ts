@@ -214,3 +214,34 @@ export const dashboardData = {
     },
   ],
 };
+
+
+export type hotelDatas={
+  date: string;
+  propertyId: string;
+  name: string;
+  email: string;
+  airport: string;
+  serviceType: string;
+  totalBooking: number;
+  grandTotal: number;
+  tax: number;
+  netRevenue: number;
+  commission: number;
+  netToPay: number;
+}
+
+export const hoteldataheader=[
+  "date",
+  "propertyId",
+  "name",
+  "email",
+  "airport",
+  "serviceType",
+  "totalBooking",
+  "grandTotal",
+  "tax",
+  "netRevenue",
+  "commission",
+  "netToPay"
+]

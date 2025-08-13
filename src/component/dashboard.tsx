@@ -20,8 +20,8 @@ const Dashboard = () => {
     <div className="bg-black min-h-screen flex  ">
       <div
         className={`bg-white ${
-          ishamburgerbtn ? "w-1/5" : "w-1/20"
-        }  min-h-screen flex-col items-center justify-items-center`}
+          ishamburgerbtn ? "w-1/7 p-5 " : "w-1/20"
+        }  min-h-screen flex-col items-center justify-items-center `}
       >
         <div className="flex items-center gap-1 p-4 ">
           <button onClick={Hamburger}>
@@ -50,7 +50,7 @@ const Dashboard = () => {
       </div>
       <div
         className={`bg-gray-100 ${
-          ishamburgerbtn ? "w-4/5" : "w-19/20"
+          ishamburgerbtn ? "w-6/7 p-5" : "w-19/20"
         }  min-h-screen `}
       >
         <Outlet />

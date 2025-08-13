@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./pages/login/login";
-import Dashboard from "./component/dashboard.tsx";
-import Dashdata from "./pages/dashboard/dashboard.tsx";
-import Projects from "./pages/projects/projects.tsx";
-import Employees from "./pages/employees/employees.tsx";
-import Home from "./pages/home/Home.tsx";
+import Login from "./pages/login/index.tsx";
+import Dashboard from "./component/Dashboard.tsx";
+import Dashdata from "./pages/dashboard/index.tsx";
+import Projects from "./pages/projects/index.tsx";
+import Employees from "./pages/employees/index.tsx";
+import Home from "./pages/home/index.tsx";
 import { LoginProvider } from "./services/loginservices.tsx";
-import { AuthProvider } from "./context/protectedroute.tsx";
+import { AuthProvider } from "./layouts/protectedroute.tsx";
+import HotelData from "./pages/hotel.tsx/index.tsx";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="dashdata" element={<Dashdata />}></Route>
                 <Route path="employees" element={<Employees />}></Route>
                 <Route path="projects" element={<Projects />}></Route>
+                <Route path="HotelData" element={<HotelData />}></Route>
               </Route>
             </Routes>
           </LoginProvider>

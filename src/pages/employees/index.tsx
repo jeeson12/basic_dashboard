@@ -21,14 +21,14 @@ const Employees = () => {
           </thead>
           <tbody className="">
             {widget?.employees.map((widget, index) => (
-              <tr className="text-center">
-                <td key={index} className="p-3">
+              <tr className="text-center"key={index}>
+                <td  className="p-3">
                   {widget.id}
                 </td>
-                <td key={index}>{widget.name}</td>
-                <td key={index}>{widget.department} </td>
-                <td key={index}>{widget.role}</td>
-                <td key={index}>{widget.status}</td>
+                <td >{widget.name}</td>
+                <td>{widget.department} </td>
+                <td>{widget.role}</td>
+                <td>{widget.status}</td>
               </tr>
             ))}
           </tbody>
