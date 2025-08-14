@@ -1,5 +1,6 @@
 import { useLogin } from "../../context/logincontext";
 
+
 const Login = () => {
   const login = useLogin();
 
@@ -13,7 +14,10 @@ const Login = () => {
     );
   }
 
-  const { handleChange, handleSubmit } = login;
+  const { handleChange, handleSubmit,loader } = login;
+  if(loader())
+    return loader()
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-200 to-emerald-500">
@@ -32,9 +36,9 @@ const Login = () => {
         {/* Form */}
         <div className="w-full flex flex-col gap-4">
           <input
-            name="userName"
+            name="Email"
             type="text"
-            placeholder="Username"
+            placeholder="email"
             onChange={handleChange}
             className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
           />
@@ -51,7 +55,9 @@ const Login = () => {
           >
             Sign In
           </button>
+          
         </div>
+        {/* <div className="pt-5">{error()}</div> */}
       </div>
     </div>
   );

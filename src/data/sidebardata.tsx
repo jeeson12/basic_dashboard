@@ -1,5 +1,5 @@
 import type { JSX } from "react/jsx-runtime";
-import {  Sheet, IdCardLanyard, FolderGit2, Home ,Hotel} from "lucide-react";
+import {  Sheet, IdCardLanyard, FolderGit2, Home ,Hotel, } from "lucide-react";
 
 export interface sidebardata {
   label: string;
@@ -12,7 +12,8 @@ export const Hamburgerdata: sidebardata[] = [
   { label: "dashboard", icon: <Sheet />, path: "/dashboard/dashdata" },
   { label: "employees", icon: <IdCardLanyard />, path: "/dashboard/employees" },
   { label: "projects", icon: <FolderGit2 />, path: "/dashboard/projects" },
-  {label:"hotelData", icon:<Hotel/>,path:"/dashboard/hotelData"}
+  {label:"hotelData", icon:<Hotel/>,path:"/dashboard/hotel-data"}
+  
   
 ];
 

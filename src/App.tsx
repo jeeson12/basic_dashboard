@@ -1,23 +1,26 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./pages/login/index.tsx";
-import Dashboard from "./component/Dashboard.tsx";
-import Dashdata from "./pages/dashboard/index.tsx";
-import Projects from "./pages/projects/index.tsx";
-import Employees from "./pages/employees/index.tsx";
-import Home from "./pages/home/index.tsx";
 import { LoginProvider } from "./services/loginservices.tsx";
 import { AuthProvider } from "./layouts/protectedroute.tsx";
-import HotelData from "./pages/hotel.tsx/index.tsx";
+import { lazy, Suspense } from "react";
+const Login = lazy(() => import("./pages/login/index.tsx"));
+const Dashboard = lazy(() => import("./component/Dashboard.tsx"));
+const Dashdata = lazy(() => import("./pages/dashboard/index.tsx"));
+const Projects = lazy(() => import("./pages/projects/index.tsx"));
+const Employees = lazy(() => import("./pages/employees/index.tsx"));
+const Home = lazy(() => import("./pages/home/index.tsx"));
+const HotelData = lazy(() => import("./pages/hotel.tsx/index.tsx"));
+const NotFound = lazy(() => import("./pages/notfound/index.tsx"));
 
 const App = () => {
   return (
     <>
-      <div>
+      <Suspense fallback={<div>Loading....</div>}>
         <BrowserRouter>
           <LoginProvider>
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/login" element={<Login />} />
+
               <Route
                 path="dashboard"
                 element={
@@ -27,15 +30,16 @@ const App = () => {
                 }
               >
                 <Route index element={<Home />} />
-                <Route path="dashdata" element={<Dashdata />}></Route>
-                <Route path="employees" element={<Employees />}></Route>
-                <Route path="projects" element={<Projects />}></Route>
-                <Route path="HotelData" element={<HotelData />}></Route>
+                <Route path="dashdata" element={<Dashdata/>}/>
+                <Route path="employees" element={<Employees />}/>
+                <Route path="projects" element={<Projects />}/>
+                <Route path="hotel-data" element={<HotelData />}/>
               </Route>
+              <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </LoginProvider>
         </BrowserRouter>
-      </div>
+      </Suspense>
     </>
   );
 };

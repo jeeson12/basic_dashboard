@@ -1,12 +1,13 @@
-import { useLogin } from "../context/logincontext";
+
 import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const login = useLogin();
-
-  if (!login || !login.credentials || !login.credentials.isloggedin) {
-    return <Navigate to="/login" />;
+  const token =localStorage.getItem("authtoken")
+  if(token==null){
+    return <Navigate to="/login" />
   }
+  
+ 
   return children;
 };

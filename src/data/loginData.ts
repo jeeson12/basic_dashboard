@@ -1,8 +1,4 @@
-export type LoginData = { username: string; password: string };
-export const loginData: LoginData = {
-  username: "jeeson",
-  password: "1234",
-};
+
 
 export type Widget = {
   type: string;
