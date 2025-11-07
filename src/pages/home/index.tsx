@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 text-center gap-5 ">
       <img
-        src="/src/assets/logo.png"
+        src={`${process.env.PUBLIC_URL}/logo.png`}
         alt="Company Logo"
         className="w-75 h-75 mb-4 rounded-2xl "
       />
