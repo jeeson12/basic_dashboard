@@ -1,20 +1,26 @@
-import { hoteldataheader } from "../../data/loginData";
+import { hoteldataheader, hoteldata} from "../../data/loginData";
 import { useEffect, useState } from "react";
-import type { hoteldatas } from "../../data/loginData";
+import type { hotelDatas } from "../../data/loginData";
 import instance from "../../services/axiosInstance";
 
 const HotelData = () => {
-  const [hotel, Sethotel] = useState<hoteldatas[]>([]);
+  const [hotel, Sethotel] = useState<hotelDatas[]>([]);
   const [loading, SetLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responce = await instance.get<hotelDatas[]>(
+        const response = await instance.get<hotelDatas[]>(
           "/finance?start=2025-07-01&end=2025-08-09"
         );
         Sethotel(responce.data);
+        if (response.data && response.data.length > 0) {
+        Sethotel(response.data);
+      } else {
+        Sethotel(hoteldata); // fallback to local fake data
+      }
       } catch (error) {
         console.error("Error fetching data:", error);
+        Sethotel(hoteldata); 
       } finally {
         SetLoading(false);
       }
