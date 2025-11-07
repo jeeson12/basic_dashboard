@@ -23,9 +23,6 @@ A simple dashboard project developed using **TypeScript** and **ReactJS**. This 
 - **Vite** for project bundling
 - **Tailwind CSS** for styling
 
-## Screenshots
-
-*(Optional: Add screenshots of your dashboard here)*
 
 ---
 
