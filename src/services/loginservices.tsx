@@ -29,31 +29,72 @@ export const LoginProvider = ({ children }: { children: ReactNode }) => {
   };
   const { Email, passWord } = credentials;
 
-  const handleSubmit = async (): Promise<void> => {
-    SetLoading(true);
-    try {
-      const res = await instance.post<{ token: string }>(
-        "authentication/login",
-        {
-          email: Email,
-          password: passWord,
-        }
-      );
 
-      if (res.data.token) {
-        setCredentials((prev) => ({ ...prev, isloggedin: true }));
-        console.log("login successfull");
-        localStorage.setItem("authtoken", res.data.token);
-        // SetTokenvalue(res.data.token)
+const handleSubmit = async (): Promise<void> => {
+  SetLoading(true);
 
-        navigate("/dashboard");
+  // ✅ Detect if the app is running on GitHub Pages
+  const isGithubPages = window.location.hostname.includes("github.io");
+
+  if (isGithubPages) {
+    console.log("🧪 Demo Mode: skipping login (GitHub Pages)");
+    setCredentials((prev) => ({ ...prev, isloggedin: true }));
+    localStorage.setItem("authtoken", "demo-token");
+    navigate("/dashboard");
+    SetLoading(false);
+    return; // stop here (don’t call API)
+  }
+
+  try {
+    const res = await instance.post<{ token: string }>(
+      "authentication/login",
+      {
+        email: Email,
+        password: passWord,
       }
-    } catch (error) {
-      console.log("login failed", error);
-    } finally {
-      SetLoading(false);
+    );
+
+    if (res.data.token) {
+      setCredentials((prev) => ({ ...prev, isloggedin: true }));
+      console.log("login successful");
+      localStorage.setItem("authtoken", res.data.token);
+      navigate("/dashboard");
     }
-  };
+  } catch (error) {
+    console.log("login failed", error);
+  } finally {
+    SetLoading(false);
+  }
+};
+
+
+  
+
+  // const handleSubmit = async (): Promise<void> => {
+  //   SetLoading(true);
+  //   try {
+  //     const res = await instance.post<{ token: string }>(
+  //       "authentication/login",
+  //       {
+  //         email: Email,
+  //         password: passWord,
+  //       }
+  //     );
+
+  //     if (res.data.token) {
+  //       setCredentials((prev) => ({ ...prev, isloggedin: true }));
+  //       console.log("login successfull");
+  //       localStorage.setItem("authtoken", res.data.token);
+  //       // SetTokenvalue(res.data.token)
+
+  //       navigate("/dashboard");
+  //     }
+  //   } catch (error) {
+  //     console.log("login failed", error);
+  //   } finally {
+  //     SetLoading(false);
+  //   }
+  // };
 
   // const invalid=()=>{
   //   if (tokenvalue)
