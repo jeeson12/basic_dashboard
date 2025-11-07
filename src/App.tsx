@@ -3,7 +3,7 @@ import { LoginProvider } from "./services/loginservices.tsx";
 import { AuthProvider } from "./layouts/protectedroute.tsx";
 import { lazy, Suspense } from "react";
 const Login = lazy(() => import("./pages/login/index.tsx"));
-const Dashboard = lazy(() => import("./component/Dashboard.tsx"));
+const Dashboard = lazy(() => import("./component/dashboard.tsx"));
 const Dashdata = lazy(() => import("./pages/dashboard/index.tsx"));
 const Projects = lazy(() => import("./pages/projects/index.tsx"));
 const Employees = lazy(() => import("./pages/employees/index.tsx"));
