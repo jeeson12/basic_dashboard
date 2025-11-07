@@ -1,10 +1,10 @@
 import { hoteldataheader } from "../../data/loginData";
 import { useEffect, useState } from "react";
-import type { hotelDatas } from "../../data/loginData";
+import type { hoteldatas } from "../../data/loginData";
 import instance from "../../services/axiosInstance";
 
 const HotelData = () => {
-  const [hotel, Sethotel] = useState<hotelDatas[]>([]);
+  const [hotel, Sethotel] = useState<hoteldatas[]>([]);
   const [loading, SetLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
