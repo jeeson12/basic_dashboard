@@ -23,7 +23,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-200 to-emerald-500">
       <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md flex flex-col items-center">
         <img
-          src={`${process.env.PUBLIC_URL}/logo.png`}
+          src={`${import.meta.env.BASE_URL}logo.png`}
           alt="Company Logo"
           className="w-20 h-20 mb-4 rounded-full shadow"
         />
