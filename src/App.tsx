@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {HashRouter as BrowserRouter, Route, Routes } from "react-router-dom";
 import { LoginProvider } from "./services/loginservices.tsx";
 import { AuthProvider } from "./layouts/protectedroute.tsx";
 import { lazy, Suspense } from "react";
