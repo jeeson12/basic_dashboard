@@ -12,7 +12,7 @@ const HotelData = () => {
         const response = await instance.get<hotelDatas[]>(
           "/finance?start=2025-07-01&end=2025-08-09"
         );
-        Sethotel(responce.data);
+        Sethotel(response.data);
         if (response.data && response.data.length > 0) {
         Sethotel(response.data);
       } else {
