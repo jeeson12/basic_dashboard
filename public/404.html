@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Save the requested URL
+      sessionStorage.redirect = location.href;
+      // Redirect to the root (where React app is served)
+      window.location.replace("/basic_dashboard/");
+    </script>
+  </head>
+  <body></body>
+</html>
